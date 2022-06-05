@@ -13,8 +13,7 @@ header{
     align-items: center;
     justify-content: space-between;
 }
-.cartCard img,
-.card img {
+.card  img {
     height: 80px;
 }
 .card {
@@ -25,27 +24,9 @@ header{
 }
 .productsWrapper {
     display: grid;
-    gap: 30px; 
-    grid-template-columns: repeat(4, 1fr);align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
-@media screen and (max-width: 1200px) {
-  .productsWrapper {
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-  }
-}@media screen and (max-width: 992px) {
-  .productsWrapper {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-  }
-}
-@media screen and (max-width: 576px) {
-  .productsWrapper {
-    grid-template-columns:  1fr;
-   
-  }
-}
-
 .btn {
     border: none;
     outline: none;
