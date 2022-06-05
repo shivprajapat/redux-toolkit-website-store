@@ -16,6 +16,11 @@ header{
 .card  img {
     height: 80px;
 }
+.cart-icon{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
 .card {
     background: white;
     padding: 20px;

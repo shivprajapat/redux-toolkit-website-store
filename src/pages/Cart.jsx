@@ -1,16 +1,31 @@
 import React from 'react'
-import logo from '../logo.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { remove } from '../store/features/cartSlice';
+
 const Cart = () => {
+
+    let dispatch = useDispatch()
+    const product = useSelector((state) => state.cart);
+    console.log(product);
+
+    const handleChange = (id) => {
+        dispatch(remove(id))
+    }
     return (
         <div>
             <h3>Cart</h3>
             <div className="cartWrapper">
-                <div className="cartCard">
-                    <img src={logo} alt="" />
-                    <h3>title</h3>
-                    <h3>price</h3>
-                    <button className="btn">Remove</button>
-                </div>
+                {product.map((item) => {
+                    const { category, price, id, image } = item;
+                    return (
+                        <div className="cartCard" key={item.id}>
+                            <img src={image} alt="" />
+                            <h3>{category}</h3>
+                            <h3>{price}</h3>
+                            <button className="btn" onClick={() => handleChange(id)}>Remove</button>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
