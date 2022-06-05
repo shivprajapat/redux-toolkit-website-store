@@ -17,14 +17,13 @@ const Product = () => {
     return (
         <section className='productsWrapper'>
             {product && product.map((product, index) => {
-                const { category, price, image, description } = product;
+                const { category, price, image } = product;
 
                 return <div className="card" key={index}>
                     <img src={image} alt="" />
                     <h3>{category}</h3>
                     <h3>{price}</h3>
-                    <p>{description.slice(0, 50)}</p>
-                    <button className="btn">Add</button>
+                    <button className="btn"> Add to cart</button>
                 </div>
             })}
         </section>
