@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { remove } from '../store/features/cartSlice';
 
 const Cart = () => {
-
     let dispatch = useDispatch()
     const product = useSelector((state) => state.cart);
-    console.log(product);
-
+    // console.log(product);
     const handleChange = (id) => {
         dispatch(remove(id))
     }

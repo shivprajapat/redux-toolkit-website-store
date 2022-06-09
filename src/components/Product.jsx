@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../store/features/cartSlice'
+import { fetchProducts, STATUSES } from '../store/features/productSlice'
 
 const Product = () => {
-    const [product, setProduct] = useState("")
     let dispatch = useDispatch()
-    const fetchProduct = async () => {
-        const res = await fetch('https://fakestoreapi.com/products');
-        const data = await res.json();
-        setProduct(data)
-        console.log(data);
-    }
-
+    const { data: product, status } = useSelector((state) => state.product)
+    console.log(product);
     useEffect(() => {
-        fetchProduct()
-    }, [])
+        dispatch(fetchProducts())
+    },
+        // eslint-disable-next-line
+        [])
     const handleAdd = (product) => {
         dispatch(add(product))
+    }
+
+    if (status === STATUSES.LOADING) {
+        return <h2>Loading...</h2>
+    }
+    if (status === STATUSES.ERROR) {
+        return <h2>error...</h2>
     }
     return (
         <section className='productsWrapper'>
             {product && product.map((product, index) => {
                 const { category, price, image } = product;
-
                 return <div className="card" key={index}>
                     <img src={image} alt="" />
                     <h3>{category}</h3>
