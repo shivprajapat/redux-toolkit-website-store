@@ -17,10 +17,10 @@ const Product = () => {
     }
 
     if (status === STATUSES.LOADING) {
-        return <h2>Loading...</h2>
+        return <div class="loader"></div>
     }
     if (status === STATUSES.ERROR) {
-        return <h2>error...</h2>
+        return <div class="error">Api URL is invalid</div>
     }
     return (
         <section className='productsWrapper'>

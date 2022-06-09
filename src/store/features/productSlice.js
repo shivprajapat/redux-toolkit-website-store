@@ -31,7 +31,7 @@ const productSlice = createSlice({
 export const { setProducts, setStatus } = productSlice.actions;
 export default productSlice.reducer;
 
-// Thunk
+// createAsyncThunk
 
 export const fetchProducts = createAsyncThunk('products/fetch', async () => {
     const res = await fetch('https://fakestoreapi.com/products');

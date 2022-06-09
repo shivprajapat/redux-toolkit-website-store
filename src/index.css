@@ -75,6 +75,8 @@ header{
 
 .heading {
     padding: 25px 0;
+    text-align: center;
+    margin: 0;
 }
 .cartCount {
     font-weight: bold;
@@ -95,4 +97,33 @@ header{
     margin-bottom: 20px;
     padding: 14px;
     border-radius: 5px;
+}
+
+.error,.loader{
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.loader {
+  border:5px solid #686e7229;
+  border-radius: 50%;
+  border-top: 5px solid pink;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
